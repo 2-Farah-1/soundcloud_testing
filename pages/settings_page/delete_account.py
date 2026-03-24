@@ -20,16 +20,6 @@ driver=None
 wait=None
 
 
-def click_more_menu_dropdown():
-    button = wait.until(EC.element_to_be_clickable(HomeSelectors.MORE_MENU_DROPDOWN))
-    button.click()
-
-
-def click_settings_button():
-    button = wait.until(EC.element_to_be_clickable(HomeSelectors.SETTINGS_BTN))
-    button.click()
-
-
 def click_delete_account_button():
     button = wait.until(EC.element_to_be_clickable(SettingsSelectors.DELETE_ACCOUNT_BTN))
     driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", button)
@@ -42,8 +32,7 @@ def switch_to_delete_account_iframe():
     iframe = wait.until(
         EC.presence_of_element_located(
             (
-                By.XPATH,
-                "//iframe[contains(@src, '/n/pages/standby') and @title='SoundCloud']"
+                SettingsDeleteAccountSection.DELETE_ACCOUNT_IFRAME
             )
         )
     )

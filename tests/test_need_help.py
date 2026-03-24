@@ -1,46 +1,50 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
+import pytest
 from selenium.webdriver.support.ui import WebDriverWait
-import time
 
-# import all your functions directly
-from pages.sign_in_page import *
-from ui_selectors import SettingsSelectors
+import pages.cookies_page
+import pages.home_page
+import pages.auth_page
+import utils.browser_utils
 
-# setup browser
-service = Service(r"C:\browserdrivers\chromedriver.exe")
-driver = webdriver.Chrome(service=service)
-
-driver.get("https://soundcloud.com/")
-driver.maximize_window()
-print(driver.title)
-
-# define wait here
-wait = WebDriverWait(driver, 20)
-
-# VERY IMPORTANT: assign to functions file globals
-import pages.sign_in_page
-pages.login_page.driver = driver
-pages.login_page.wait = wait
+from pages.cookies_page import click_reject_all_cookies
+from pages.home_page import click_header_create_account
+from pages.auth_page import switch_to_auth_iframe, click_need_help
+from utils.browser_utils import is_on_help_center, is_element_visible
+from ui_selectors import SignUpSelectors
 
 
-# =========================
-# TEST FLOW 5: Need Help
-# =========================
+def setup_page(driver):
+    driver.get("https://soundcloud.com/")
+    driver.maximize_window()
 
-# Step 0: cookies
-click_reject_all_cookies()
+    wait = WebDriverWait(driver, 20)
 
-# Step 1: open auth
-click_header_create_account()
-switch_to_auth_iframe()
-time.sleep(2)
+    pages.cookies_page.driver = driver
+    pages.cookies_page.wait = wait
 
-click_need_help()
+    pages.home_page.driver = driver
+    pages.home_page.wait = wait
 
-if is_on_help_center() and is_element_visible(SignUpSelectors.HELP_CENTER_PAGE_TITLE):
-    print("TEST PASSED - ON HELP CENTER PAGE")
-else:
-    print("TEST FAILED")
+    pages.auth_page.driver = driver
+    pages.auth_page.wait = wait
+
+    utils.browser_utils.driver = driver
+    utils.browser_utils.wait = wait
 
 
+@pytest.mark.smoke
+@pytest.mark.auth
+def test_need_help_opens_help_center(driver):
+    setup_page(driver)
+
+    click_reject_all_cookies()
+
+    click_header_create_account()
+    switch_to_auth_iframe()
+
+    click_need_help()
+
+    driver.switch_to.default_content()
+
+    assert is_on_help_center(), "Did not navigate to Help Center"
+    assert is_element_visible(SignUpSelectors.HELP_CENTER_PAGE_TITLE), "Help Center page title is not visible"

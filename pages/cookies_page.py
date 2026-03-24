@@ -1,11 +1,3 @@
-#from selenium.webdriver.common.by import By
-#from selenium.webdriver.common.keys import Keys
-
-
-# from selenium import webdriver
-# driver = webdriver.Chrome(executable_path=r"C:\browserdrivers\chromedriver.exe")
-# driver.get("https://soundcloud.com/")
-
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
@@ -15,6 +7,7 @@ from ui_selectors import AuthSelectors, CookieSelectors, HomeSelectors, SignUpSe
 from selenium.webdriver.common.action_chains import ActionChains
 import time
 from selenium.webdriver.support.ui import Select
+
 driver=None
 wait=None
 

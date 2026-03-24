@@ -3,8 +3,19 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 import time
 
-# import all your functions directly
-from pages.sign_in_page import *
+import pages.auth_page
+import utils.browser_utils
+import pages.home_page
+import pages.cookies_page
+
+from pages.cookies_page import click_reject_all_cookies
+
+from pages.auth_page import (click_header_create_account, switch_to_auth_iframe,
+                             auth_enter_email_or_url, click_continue)
+
+from utils.browser_utils import is_element_visible
+from pages.home_page import click_header_sign_in
+from ui_selectors import AuthSelectors
 
 # setup browser
 service = Service(r"C:\browserdrivers\chromedriver.exe")
@@ -14,13 +25,19 @@ driver.get("https://soundcloud.com/")
 driver.maximize_window()
 print(driver.title)
 
-# define wait here
 wait = WebDriverWait(driver, 20)
 
-# VERY IMPORTANT: assign to functions file globals
-import pages.sign_in_page
-pages.login_page.driver = driver
-pages.login_page.wait = wait
+pages.auth_page.driver = driver
+pages.auth_page.wait = wait
+
+utils.browser_utils.driver = driver
+utils.browser_utils.wait = wait
+
+pages.home_page.driver = driver
+pages.home_page.wait = wait
+
+pages.cookies_page.driver = driver
+pages.cookies_page.wait = wait
 
 
 # =========================
@@ -28,10 +45,10 @@ pages.login_page.wait = wait
 # =========================
 
 # Step 0: cookies (optional)
-click_header_create_account()
+click_reject_all_cookies()
 
 # Step 1: open auth
-click_header_sign_in()
+click_header_create_account()
 switch_to_auth_iframe()
 time.sleep(2)
 # Step 2: email

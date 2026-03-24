@@ -47,3 +47,14 @@ def click_bottom_sign_in():
         EC.element_to_be_clickable(HomeSelectors.BOTTOM_SIGN_IN)
     )
     sign_in.click()
+#===================signed in
+
+def click_more_menu_dropdown():
+    button = wait.until(EC.element_to_be_clickable(HomeSelectors.MORE_MENU_DROPDOWN))
+    button.click()
+
+
+def click_settings_button():
+    button = wait.until(EC.element_to_be_clickable(HomeSelectors.SETTINGS_BTN))
+    button.click()
+

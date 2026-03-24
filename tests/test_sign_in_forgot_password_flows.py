@@ -2,17 +2,24 @@ import pytest
 from selenium.webdriver.support.ui import WebDriverWait
 
 import pages.sign_in_page
+import pages.auth_page
+import utils.browser_utils
+
 from pages.sign_in_page import (
-    open_auth,  # YOU already have this
-    auth_enter_email_or_url,
-    click_continue,
     click_forgot_password,
     click_send_reset_link,
     click_visit_help_center,
-    click_back_to_login,
+    click_back_to_login
+)
+from pages.auth_page import (
+    open_auth,
+    auth_enter_email_or_url,
+    click_continue,
+    switch_to_auth_iframe
+)
+from utils.browser_utils import (
     is_element_visible,
-    is_on_help_center,
-    switch_to_auth_iframe,
+    is_on_help_center
 )
 from ui_selectors import SignInSelectors, SignUpSelectors, AuthSelectors
 
@@ -25,8 +32,14 @@ def setup_page(driver):
     driver.maximize_window()
     wait = WebDriverWait(driver, 20)
     # inject driver + wait into your page functions
-    pages.login_page.driver = driver
-    pages.login_page.wait = wait
+    pages.sign_in_page.driver = driver
+    pages.sign_in_page.wait = wait
+
+    pages.auth_page.driver = driver
+    pages.auth_page.wait = wait
+
+    utils.browser_utils.driver = driver
+    utils.browser_utils.wait = wait
 
 
 def go_to_forgot_password(email):

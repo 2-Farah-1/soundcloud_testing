@@ -191,7 +191,7 @@ class HomeSelectors:
 #signed in:
     MORE_BUTTON = (By.CSS_SELECTOR, "a.header__moreButton")
 
-    MORE_MENU_DROPDOWN = (By.CSS_SELECTOR, "div.headerMenu.moreMenu")
+    MORE_MENU_DROPDOWN = (By.CSS_SELECTOR, "a.header__moreButton[aria-haspopup='true']")
 
     SETTINGS_BTN = (By.CSS_SELECTOR, "a.outgoing-settings")
 
@@ -336,6 +336,8 @@ class SettingsResetPasswordSection:
     PASSWORD_RESET_SUCCESS_SIGNIN_BTN = (By.XPATH, "//a[@href='/signin' and text()='Sign in']")
 
 class SettingsDeleteAccountSection:
+    DELETE_ACCOUNT_IFRAME=(  By.XPATH,
+                "//iframe[contains(@src, '/n/pages/standby') and @title='SoundCloud']")
     DELETE_ACCOUNT_MODAL = (By.CSS_SELECTOR, "div.deleteAccountContent__form")
     DELETE_ACCOUNT_TITLE = (By.XPATH, "//h2[text()='Delete account']")
     DELETE_ACCOUNT_SUBTITLE = (By.XPATH, "//h3[text()='Why are you choosing to delete your account?']")

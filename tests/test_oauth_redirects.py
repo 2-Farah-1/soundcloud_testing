@@ -4,7 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 #these tests just test that the app redirects nothing more
 
-from pages.sign_in_page import (
+from pages.auth_page import (
     open_auth,
     switch_to_auth_iframe,
     click_google_button,
@@ -16,8 +16,8 @@ def setup_page(driver):
     driver.get("https://soundcloud.com/")
     driver.maximize_window()
     wait = WebDriverWait(driver, 20)
-    pages.login_page.driver = driver
-    pages.login_page.wait = wait
+    pages.auth_page.driver = driver
+    pages.auth_page.wait = wait
 
 
 def switch_to_new_window_and_wait_for_url(driver, expected_text):
