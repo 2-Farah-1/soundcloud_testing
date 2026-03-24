@@ -1,0 +1,5 @@
+--For  test_verification.py I am supposed to add successful sign up logic before these tests
+
+--i am supposed to split the functions in login_page.py to put them in different "pages"
+
+--
