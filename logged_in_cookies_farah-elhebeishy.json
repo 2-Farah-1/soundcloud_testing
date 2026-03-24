@@ -43,6 +43,20 @@
 },
 {
     "domain": ".soundcloud.com",
+    "expirationDate": 1782090876,
+    "hostOnly": false,
+    "httpOnly": false,
+    "name": "_rdt_em",
+    "path": "/",
+    "sameSite": "strict",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": ":0a7dd3718c290304ef793f94d469c5309b74a0fe0dfb7663633590c4bbe77792,0a7dd3718c290304ef793f94d469c5309b74a0fe0dfb7663633590c4bbe77792,0a7dd3718c290304ef793f94d469c5309b74a0fe0dfb7663633590c4bbe77792,0a7dd3718c290304ef793f94d469c5309b74a0fe0dfb7663633590c4bbe77792,ac66030a40dc511f37688a1a2c00048c08d284465b0bea3da34903f782bad718",
+    "id": 4
+},
+{
+    "domain": ".soundcloud.com",
     "expirationDate": 1782090336,
     "hostOnly": false,
     "httpOnly": false,
@@ -53,7 +67,7 @@
     "session": false,
     "storeId": "0",
     "value": "1774314336892.d6597b47-7dd4-4cc4-9f9f-91e02dacf4db",
-    "id": 4
+    "id": 5
 },
 {
     "domain": ".soundcloud.com",
@@ -67,7 +81,7 @@
     "session": false,
     "storeId": "0",
     "value": "1774314336690",
-    "id": 5
+    "id": 6
 },
 {
     "domain": ".soundcloud.com",
@@ -81,7 +95,7 @@
     "session": false,
     "storeId": "0",
     "value": "17407297-fa28-4979-af85-7d77ad62cadb-p",
-    "id": 6
+    "id": 7
 },
 {
     "domain": ".soundcloud.com",
@@ -94,7 +108,7 @@
     "session": true,
     "storeId": "0",
     "value": "1",
-    "id": 7
+    "id": 8
 },
 {
     "domain": ".soundcloud.com",
@@ -107,21 +121,21 @@
     "session": true,
     "storeId": "0",
     "value": "1",
-    "id": 8
+    "id": 9
 },
 {
     "domain": ".soundcloud.com",
-    "expirationDate": 1805850350.865328,
+    "expirationDate": 1805922689,
     "hostOnly": false,
     "httpOnly": false,
     "name": "datadome",
     "path": "/",
-    "sameSite": "lax",
-    "secure": true,
+    "sameSite": "unspecified",
+    "secure": false,
     "session": false,
     "storeId": "0",
-    "value": "hfrMmke06XZtr8Py9kjEkbRVwCn0JAJDyR0kLLvfVymB8Hn99mhAIjHyXFKGdDsOJ5k861FwEv7GEezgOxNhlySAfB8MO1NkGjNCeNRmQnyNHhvhxBOdcSJ6nmzlSvMh",
-    "id": 9
+    "value": "QQ8FW0sSBDi1k1SZJiz_d0xlaOqEP3TgV_L0dKdAOUi1uVw_2m5mKujKhnl7QryxOXIMP4bRBc4H5WDBe_v~JySu_Ojjf0vQmU1mutevmc2Sf4DquLo0n3_Ejg9R8mJu",
+    "id": 10
 },
 {
     "domain": ".soundcloud.com",
@@ -135,11 +149,11 @@
     "session": false,
     "storeId": "0",
     "value": "CQhkS7AQhkS7AAcABBENCXFgAAAAAEPgAAYgAAAYaABMNCogjLIgQCBQEIIEACgrCACgQBAAAkDRAQAmDAhyBgAusJkAIAUAAwQAgABBgACAAASABCIAIACAQAgQCBQABgAQBAQAMDAAGACxEAgABAdAxTAggECwASIyqDTAlAASCAlsqEEoGBBXCFIscAggREwUAAAIABQAAID4WAhJKCViQQBcQXQAAEAAAUQIkCKQswBBUGaLQVgScBkaYBk-YJklOgyAJghIyDIhNUEg8UxRCghyA2KWYA6eIKAEXayQh4AA.YAAACHwAAAAA",
-    "id": 10
+    "id": 11
 },
 {
     "domain": ".soundcloud.com",
-    "expirationDate": 1805850349,
+    "expirationDate": 1805922689,
     "hostOnly": false,
     "httpOnly": false,
     "name": "extole_access_token",
@@ -148,12 +162,26 @@
     "secure": true,
     "session": false,
     "storeId": "0",
-    "value": "D7LKDGO187499STT44O5BVI2FJ",
-    "id": 11
+    "value": "TJLRMVLB7UC7TQOAJ0ORD8VQ97",
+    "id": 12
 },
 {
     "domain": ".soundcloud.com",
-    "expirationDate": 1776906346,
+    "expirationDate": 1774473084,
+    "hostOnly": false,
+    "httpOnly": false,
+    "name": "google_auth_nonce",
+    "path": "/",
+    "sameSite": "unspecified",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": "o54ihow5yc-pLvbzV7CKugPFW8mUP_4HXHP5xMK5X1IoRenvj-pA3xjnSSTFqpra",
+    "id": 13
+},
+{
+    "domain": ".soundcloud.com",
+    "expirationDate": 1776978689,
     "hostOnly": false,
     "httpOnly": false,
     "name": "ja",
@@ -163,11 +191,11 @@
     "session": false,
     "storeId": "0",
     "value": "0",
-    "id": 12
+    "id": 14
 },
 {
     "domain": ".soundcloud.com",
-    "expirationDate": 1808874348.660998,
+    "expirationDate": 1808946689.053685,
     "hostOnly": false,
     "httpOnly": false,
     "name": "moe_c_s",
@@ -177,11 +205,11 @@
     "session": false,
     "storeId": "0",
     "value": "1",
-    "id": 13
+    "id": 15
 },
 {
     "domain": ".soundcloud.com",
-    "expirationDate": 1808874348.666396,
+    "expirationDate": 1808946689.058478,
     "hostOnly": false,
     "httpOnly": false,
     "name": "moe_i_m",
@@ -191,11 +219,11 @@
     "session": false,
     "storeId": "0",
     "value": "DcrBDcAgCADAXZhARQRcphGRxAH6aty9vu5zH7zPhn7ZDh2ilcimKw1T4WViVTOt5IMzEcucLKKaiKrn6oF2-0SkJgW1BZzzAw",
-    "id": 14
+    "id": 16
 },
 {
     "domain": ".soundcloud.com",
-    "expirationDate": 1808874348.762761,
+    "expirationDate": 1808946689.078987,
     "hostOnly": false,
     "httpOnly": false,
     "name": "moe_s_n",
@@ -204,12 +232,12 @@
     "secure": true,
     "session": false,
     "storeId": "0",
-    "value": "RcoxDoMwDIXhu3hOJFw72OUqVWVFOEhVBQxhQ9wdwsL4vvfvUO0PAzix9uoUk3iJLDxFLS-NE-ec36MjukK44mobDCjChEwslLTpfKt2XYDRfra1-fm2pzx9j6ySJMBiq9VLjxM",
-    "id": 15
+    "value": "RcpBCoQwDIXhu2RtIWNrmniVYQhqJyCiLupOvLutG5fvf98JWRfoIXRJ0jh4J1MkF1rzbrDWnGHC0SMhmUBTcNYD-k-MwTMRs3Rc6_pURmxg0lmPOr-_-vxfz4EFY_Gb7ppLvW4",
+    "id": 17
 },
 {
     "domain": ".soundcloud.com",
-    "expirationDate": 1808874349.629709,
+    "expirationDate": 1808946689.073614,
     "hostOnly": false,
     "httpOnly": false,
     "name": "moe_u_d",
@@ -218,12 +246,12 @@
     "secure": true,
     "session": false,
     "storeId": "0",
-    "value": "HY5LCsMwDAXvonUM_kiWlcsEy7KhECg0STchd2-a1WPgwcwJFeYTjpf95wszjBxHUOm-qhTuWhQlUPdWORBxaY1LEfFEaAFtJL3vLSXKJSbJAyY4lrrDHJgxBUzIieS6JtiW93prRl23PoEt1azfvH-OB58GyKHGRIyuK3mHmoMT4eFiLMSRulpscP0A",
-    "id": 16
+    "value": "HY5LCsMwDAXvonUC_smScplgWTYUAoUm6Sbk7nWzegwMvLmgwHLB-bL_fGGBnkP3Ks0VFaamrEk8NmeFPCJxrcQs4hCT-WQ96tBrjJg5RMkdJjjXcsDiiVLknIcd3H1PsK_vbdz0su1tAluLWRt8fM4HnwbIvoSIlOam6Oak2c8i1OcQGClgUwsV7h8",
+    "id": 18
 },
 {
     "domain": ".soundcloud.com",
-    "expirationDate": 1808874349.630183,
+    "expirationDate": 1808946689.074683,
     "hostOnly": false,
     "httpOnly": false,
     "name": "moe_uuid",
@@ -232,8 +260,8 @@
     "secure": true,
     "session": false,
     "storeId": "0",
-    "value": "df7001f4-8576-46e7-b5c1-52dd264dd391",
-    "id": 17
+    "value": "0ba6a3fa-5c7c-4b32-92fa-96ed170e2dd0",
+    "id": 19
 },
 {
     "domain": ".soundcloud.com",
@@ -247,11 +275,11 @@
     "session": false,
     "storeId": "0",
     "value": "2026-03-24T01:05:37.103Z",
-    "id": 18
+    "id": 20
 },
 {
     "domain": ".soundcloud.com",
-    "expirationDate": 1805850337,
+    "expirationDate": 1805922689,
     "hostOnly": false,
     "httpOnly": false,
     "name": "OptanonConsent",
@@ -260,8 +288,8 @@
     "secure": true,
     "session": false,
     "storeId": "0",
-    "value": "isGpcEnabled=0&datestamp=Tue+Mar+24+2026+03%3A05%3A37+GMT%2B0200+(Eastern+European+Standard+Time)&version=202502.1.0&browserGpcFlag=0&isIABGlobal=false&identifierType=Cookie+Unique+Id&hosts=&consentId=99eda011-a58d-4a61-b71d-7f32e06e23e5&interactionCount=1&isAnonUser=1&landingPath=NotLandingPage&groups=C0001%3A1%2CC0003%3A0%2CC0004%3A0%2CC0002%3A0%2CV2STACK42%3A0&iType=2&intType=2",
-    "id": 19
+    "value": "isGpcEnabled=0&datestamp=Tue+Mar+24+2026+23%3A11%3A29+GMT%2B0200+(Eastern+European+Standard+Time)&version=202502.1.0&browserGpcFlag=0&isIABGlobal=false&identifierType=Cookie+Unique+Id&hosts=&consentId=381564-582243-239441-808414&interactionCount=1&isAnonUser=1&landingPath=NotLandingPage&groups=C0001%3A1%2CC0003%3A0%2CC0004%3A0%2CC0002%3A0%2CV2STACK42%3A0&iType=2&intType=2&geolocation=EG%3BC&AwaitingReconsent=false",
+    "id": 21
 },
 {
     "domain": ".soundcloud.com",
@@ -275,21 +303,7 @@
     "session": false,
     "storeId": "0",
     "value": "725608-807974-472193-181662",
-    "id": 20
-},
-{
-    "domain": ".soundcloud.com",
-    "expirationDate": 1774919134,
-    "hostOnly": false,
-    "httpOnly": false,
-    "name": "sc_session",
-    "path": "/",
-    "sameSite": "unspecified",
-    "secure": false,
-    "session": false,
-    "storeId": "0",
-    "value": "{%22id%22:%2233AC3EF6-EEA0-4258-A654-FA0DAC2B8270%22%2C%22lastBecameInactive%22:null}",
-    "id": 21
+    "id": 22
 },
 {
     "domain": ".soundcloud.com",
@@ -303,11 +317,11 @@
     "session": false,
     "storeId": "0",
     "value": "dark",
-    "id": 22
+    "id": 23
 },
 {
     "domain": ".soundcloud.com",
-    "expirationDate": 1805850354,
+    "expirationDate": 1805922689,
     "hostOnly": false,
     "httpOnly": false,
     "name": "sc_tracking_anonymous_id",
@@ -316,12 +330,12 @@
     "secure": false,
     "session": false,
     "storeId": "0",
-    "value": "%225048e27b-b05b-4752-91eb-ba8be3e194f4%22",
-    "id": 23
+    "value": "%22c8ff5031-8946-4639-a36b-fc0451cac2c9%22",
+    "id": 24
 },
 {
     "domain": ".soundcloud.com",
-    "expirationDate": 1805850348,
+    "expirationDate": 1805922689,
     "hostOnly": false,
     "httpOnly": false,
     "name": "sc_tracking_user_id",
@@ -331,7 +345,21 @@
     "session": false,
     "storeId": "0",
     "value": "%22soundcloud%3Ausers%3A1683736868%22",
-    "id": 24
+    "id": 25
+},
+{
+    "domain": ".soundcloud.com",
+    "expirationDate": 1805922678,
+    "hostOnly": false,
+    "httpOnly": false,
+    "name": "sclocale",
+    "path": "/",
+    "sameSite": "unspecified",
+    "secure": false,
+    "session": false,
+    "storeId": "0",
+    "value": "en_GB",
+    "id": 26
 },
 {
     "domain": ".soundcloud.com",
@@ -344,11 +372,25 @@
     "session": true,
     "storeId": "0",
     "value": "1",
-    "id": 25
+    "id": 27
 },
 {
     "domain": "soundcloud.com",
-    "expirationDate": 1805850346,
+    "expirationDate": 1789935889,
+    "hostOnly": true,
+    "httpOnly": false,
+    "name": "g_state",
+    "path": "/",
+    "sameSite": "unspecified",
+    "secure": false,
+    "session": false,
+    "storeId": "0",
+    "value": "{\"i_l\":0,\"i_ll\":1774383889597,\"i_b\":\"+7wHrrfYPHA2NZagmvJZfxSbR/ZrzILQQZvEEITA3WI\",\"i_e\":{\"enable_itp_optimization\":0}}",
+    "id": 28
+},
+{
+    "domain": "soundcloud.com",
+    "expirationDate": 1805922688,
     "hostOnly": true,
     "httpOnly": false,
     "name": "oauth_token",
@@ -357,7 +399,7 @@
     "secure": true,
     "session": false,
     "storeId": "0",
-    "value": "2-320341-1683736868-eyzGQg5eZRkFN",
-    "id": 26
+    "value": "2-320395-1683736868-PBbFffaQxpfl1",
+    "id": 29
 }
 ]

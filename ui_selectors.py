@@ -40,6 +40,10 @@ class AuthSelectors:
 
 
 
+
+
+
+
 class SignInSelectors:
     FORGOT_PASSWORD_LINK = (By.XPATH, "//a[text()='Forgot your password?']")
 
@@ -197,7 +201,19 @@ class HomeSelectors:
 
     SIGN_OUT_BTN = (By.XPATH, "//a[@href='/logout' and text()='Sign out']")
 
+
+    PROFILE_MENU_PROFILE = (By.XPATH, "//a[contains(., 'Profile')]")
+    PROFILE_MENU_LIKES = (By.CSS_SELECTOR, "a[href='/you/likes']")
+    PROFILE_MENU_STATIONS = (By.CSS_SELECTOR, "a[href='/you/stations']")
+    PROFILE_MENU_WHO_TO_FOLLOW = (By.CSS_SELECTOR, "a[href='/people']")
+    PROFILE_MENU_TRACKS = (By.CSS_SELECTOR, "a[href='/artists']")
+
+    PROFILE_MENU_INSIGHTS = (By.XPATH, "//a[contains(., 'Insights')]")
+    PROFILE_MENU_DISTRIBUTE = (By.XPATH, "//a[contains(., 'Distribute')]")
+    PROFILE_MENU_TRY_ARTIST_PRO = (By.XPATH, "//a[contains(., 'Try Artist Pro')]")
+
 #=======================
+
 
 
 class SettingsSelectors:
@@ -392,3 +408,220 @@ class SettingsDeleteAccountSection:
 
     SIGNED_OUT_ALERT = (By.XPATH, "//h1[text()=\"You've signed out. Now go mobile!\"]")
 
+
+from selenium.webdriver.common.by import By
+
+
+class UploadSelectors:
+
+    # =========================
+    # Header / Navigation
+    # =========================
+    HEADER_UPLOAD_BUTTON = (By.CSS_SELECTOR, "a.uploadButton[href='/upload']")
+
+    # =========================
+    # Upload Page Actions
+    # =========================
+    CHOOSE_FILES_BUTTON = (By.XPATH, "//button[.//text()[contains(., 'Choose files')]]")
+
+    CONTINUE_WITHOUT_PLAN = (
+        By.XPATH,
+        "//button[contains(., 'continue without a paid plan')]"
+    )
+
+    # =========================
+    # Track Info Section
+    # =========================
+    TRACK_INFO_HEADER = (By.ID, "uploadHeader")
+
+    TRACK_TITLE = (
+        By.CSS_SELECTOR,
+        "#uploadHeader span.MuiTypography-caption"
+    )
+
+    PLAY_BUTTON = (
+        By.CSS_SELECTOR,
+        "#uploadHeader button[aria-label='Play']"
+    )
+
+    REPLACE_TRACK_BUTTON = (
+        By.XPATH,
+        "//button[.='Replace track']"
+    )
+
+    CLOSE_UPLOAD_BUTTON = (
+        By.CSS_SELECTOR,
+        "#uploadHeader button[aria-label='Close']"
+    )
+
+    # =========================
+    # File Upload (IMPORTANT)
+    # =========================
+    FILE_INPUT = (
+        By.CSS_SELECTOR,
+        "#uploadHeader input[type='file']"
+    )
+
+    # =========================
+    # Artwork
+    # =========================
+    ADD_ARTWORK_BUTTON = (
+        By.CSS_SELECTOR,
+        "button[aria-label='Add artwork']"
+    )
+
+    # =========================
+    # Track Info Inputs
+    # =========================
+
+    # Track Title
+    TRACK_TITLE_LABEL = (By.CSS_SELECTOR, "label[for='title']")
+    TRACK_TITLE_INPUT = (By.ID, "title")
+
+    # Track Link (Permalink)
+    TRACK_PERMALINK_INPUT = (By.ID, "trackPermalink")
+
+    # Artist
+    ARTIST_INPUT = (By.ID, "artist")
+
+    # Genre
+    GENRE_INPUT = (By.ID, "primaryGenre")
+
+    # Tags
+    TAGS_INPUT = (By.ID, "tags")
+
+    # Description
+    DESCRIPTION_TEXTAREA = (By.ID, "description")
+
+    # =========================
+    # Privacy
+    # =========================
+    PUBLIC_RADIO = (
+        By.XPATH,
+        "//input[@type='radio' and @value='Public']"
+    )
+
+    PRIVATE_RADIO = (
+        By.XPATH,
+        "//input[@type='radio' and @value='Private']"
+    )
+
+    # =========================
+    # Advanced Details Section
+    # =========================
+    ADVANCED_DETAILS_SECTION = (
+        By.XPATH,
+        "//h4[text()='Advanced details']"
+    )
+
+    BUY_LINK_INPUT = (By.ID, "purchaseUrl")
+
+    RECORD_LABEL_INPUT = (By.ID, "labelName")
+
+    RELEASE_DATE_INPUT = (
+        By.XPATH,
+        "//input[@placeholder='MM/DD/YYYY']"
+    )
+
+    RELEASE_DATE_PICKER_BUTTON = (
+        By.CSS_SELECTOR,
+        "button[aria-label='Choose date']"
+    )
+
+    PUBLISHER_INPUT = (By.ID, "publisher")
+
+    ISRC_INPUT = (By.ID, "isrc")
+
+    EXPLICIT_CHECKBOX = (
+        By.XPATH,
+        "//input[@type='checkbox' and @name='explicit']"
+    )
+
+    P_LINE_INPUT = (By.ID, "pLineForDisplay")
+
+    # =========================
+    # Permissions Section
+    # =========================
+    PERMISSIONS_SECTION = (
+        By.XPATH,
+        "//h4[text()='Permissions']"
+    )
+
+    ENABLE_DOWNLOADS_TOGGLE = (By.ID, "downloadable")
+
+    OFFLINE_LISTENING_TOGGLE = (By.ID, "no_offline_sync")
+
+    INCLUDE_IN_FEED_TOGGLE = (By.ID, "feedable")
+
+    DISPLAY_EMBED_TOGGLE = (By.ID, "embeddable")
+
+    APP_PLAYBACK_TOGGLE = (By.ID, "apiStreamable")
+
+    # =========================
+    # Licensing
+    # =========================
+    LICENSING_SECTION = (
+        By.XPATH,
+        "//h4[text()='Licensing']"
+    )
+
+    ALL_RIGHTS_RESERVED_RADIO = (
+        By.XPATH,
+        "//input[@type='radio' and @value='all-rights-reserved']"
+    )
+
+    CREATIVE_COMMONS_RADIO = (
+        By.XPATH,
+        "//input[@type='radio' and @value='commons']"
+    )
+
+    # =========================
+    # Terms & Upload
+    # =========================
+    TERMS_OF_USE_LINK = (
+        By.XPATH,
+        "//a[contains(@href, 'terms-of-use')]"
+    )
+
+    FINAL_UPLOAD_BUTTON = (
+        By.CSS_SELECTOR,
+        "button[aria-label='Upload']"
+    )
+    # =========================
+    # Upload Success
+    # =========================
+    UPLOAD_SUCCESS_MESSAGE = (
+        By.XPATH,
+        "//div[contains(text(), 'Saved to SoundCloud')]"
+    )
+
+    VIEW_TRACK_BUTTON = (
+        By.XPATH,
+        "//a[contains(., 'View track')]"
+    )
+
+    UPLOAD_SUCCESS_CLOSE_BUTTON = (
+        By.CSS_SELECTOR,
+        "button[aria-label='Close']"
+    )
+
+
+class ProfileTrack:
+
+    # =========================
+    # Track Actions
+    # =========================
+    EDIT_TRACK_BUTTON = (
+        By.CSS_SELECTOR,
+        "button[aria-label='Edit']"
+    )
+
+class ProfileTrackSelectors:
+
+    # =========================
+    # Track Actions
+    # =========================
+    EDIT_TRACK_BUTTON = (
+        By.CSS_SELECTOR,
+        "button[aria-label='Edit']"
+    )
