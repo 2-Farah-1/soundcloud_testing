@@ -5,15 +5,18 @@ import time
 
 import pages.auth_page
 import utils.browser_utils
-import pages.sign_up_page
+import pages.home_page
 import pages.cookies_page
 
-from pages.auth_page import (click_header_create_account, switch_to_auth_iframe,
+from pages.cookies_page import click_reject_all_cookies
+from pages.auth_page import ( click_header_create_account, switch_to_auth_iframe,
                              auth_enter_email_or_url, click_continue, enter_password, click_continue_entered_password)
 
-from utils.browser_utils import is_element_visible
-from pages.cookies_page import click_reject_all_cookies
-from ui_selectors import SignInSelectors
+from utils.browser_utils import is_element_disabled
+from pages.home_page import click_header_sign_in
+from ui_selectors import SignUpSelectors
+
+
 # setup br
 # owser
 service = Service(r"C:\browserdrivers\chromedriver.exe")
@@ -36,14 +39,13 @@ pages.auth_page.wait = wait
 utils.browser_utils.driver = driver
 utils.browser_utils.wait = wait
 
-pages.sign_up_page.driver = driver
-pages.sign_up_page.wait = wait
+pages.home_page.driver = driver
+pages.home_page.wait = wait
 
 pages.cookies_page.driver = driver
 pages.cookies_page.wait = wait
-
 # =========================
-# TEST FLOW 1: Successful Registration
+# TEST FLOW 3: Short Password (invalid)
 # =========================
 
 # Step 0: cookies
@@ -51,25 +53,21 @@ click_reject_all_cookies()
 
 # Step 1: open auth
 click_header_create_account()
-switch_to_auth_iframe()
+##switch_to_auth_iframe()
 time.sleep(2)
-
-
-# Step 2: url
-#auth_enter_email("https://soundcloud.com/farah-elhebeishy")
-auth_enter_email_or_url("farah-elhebeishy")
+# Step 2: email
+auth_enter_email_or_url("test@example.com")
 time.sleep(2)
 click_continue()
 
 # Step 3: password
-enter_password("Test1test2Test3")
+enter_password("1234")
 time.sleep(2)
 click_continue_entered_password()
 
-if is_element_visible(SignInSelectors.SIGNED_IN_PROFILE_BTN):
-    print("TEST PASSED - Signed in successfully!")
+if is_element_disabled(SignUpSelectors.CONTINUE_ENTER_PASSWORD):
+    print("TEST SUCCESS! button is disabled")
 else:
-    print("TEST FAILED - Signed in failed!")
+    print("TEST FAIL")
 
-############NEEEDS TO BE CONINUED
 time.sleep(5)

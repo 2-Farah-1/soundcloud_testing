@@ -9,11 +9,11 @@ import pages.sign_up_page
 import pages.cookies_page
 
 from pages.auth_page import (click_header_create_account, switch_to_auth_iframe,
-                             auth_enter_email_or_url, click_continue)
+                             auth_enter_email_or_url, click_continue, enter_password, click_continue_entered_password)
 
-from utils.browser_utils import is_element_visible
+from utils.browser_utils import is_element_visible,pause_for_manual_captcha
 from pages.cookies_page import click_reject_all_cookies
-from ui_selectors import SignUpSelectors
+from ui_selectors import SignInSelectors
 # setup br
 # owser
 service = Service(r"C:\browserdrivers\chromedriver.exe")
@@ -42,24 +42,33 @@ pages.sign_up_page.wait = wait
 pages.cookies_page.driver = driver
 pages.cookies_page.wait = wait
 
-
 # =========================
-# TEST FLOW: Brand New Email (not in database)
+# TEST FLOW: Successful Sign Up
 # =========================
 
+# Step 0: cookies
 click_reject_all_cookies()
 
+# Step 1: open auth
 click_header_create_account()
-switch_to_auth_iframe()
+#switch_to_auth_iframe()
 time.sleep(2)
 
-auth_enter_email_or_url("brandnewemailfortesting123456@example.com")
+
+# Step 2: email
+auth_enter_email_or_url("farahelhebeishy@gmail.com")
 time.sleep(2)
 click_continue()
-
-if is_element_visible(SignUpSelectors.CREATE_ACCOUNT_TITLE):
-    print("TEST PASSED - Create account page appeared for new email!")
+pause_for_manual_captcha()
+# Step 3: password
+enter_password("Test1test2Test3")
+time.sleep(2)
+click_continue_entered_password()
+pause_for_manual_captcha()
+if is_element_visible(SignInSelectors.SIGNED_IN_PROFILE_BTN):
+    print("TEST PASSED - Signed in successfully!")
 else:
-    print("TEST FAILED")
+    print("TEST FAILED - Signed in failed!")
 
+############NEEEDS TO BE CONINUED
 time.sleep(5)

@@ -8,12 +8,13 @@ import utils.browser_utils
 import pages.sign_up_page
 import pages.cookies_page
 
-from pages.auth_page import (click_header_create_account, switch_to_auth_iframe,
+from pages.auth_page import (click_reject_all_cookies, click_header_create_account, switch_to_auth_iframe,
                              auth_enter_email_or_url, click_continue, enter_password, click_continue_entered_password)
 
-from utils.browser_utils import is_element_visible
+from utils.browser_utils import pause_for_manual_captcha
+from pages.sign_up_page import fill_tell_us_more_about_you_form,click_continue_tell_us_more_about_you
 from pages.cookies_page import click_reject_all_cookies
-from ui_selectors import AuthSelectors
+
 # setup br
 # owser
 service = Service(r"C:\browserdrivers\chromedriver.exe")
@@ -42,23 +43,41 @@ pages.sign_up_page.wait = wait
 pages.cookies_page.driver = driver
 pages.cookies_page.wait = wait
 
+
+
 # =========================
-# TEST FLOW: Invalid URL
+# TEST FLOW 1: Successful Registration
 # =========================
 
+# Step 0: cookies
 click_reject_all_cookies()
 
+# Step 1: open auth
 click_header_create_account()
-switch_to_auth_iframe()
+##switch_to_auth_iframe()
 time.sleep(2)
-
-auth_enter_email_or_url("https://soundcloud.com/this_profile_should_not_exist_123456789")
+# Step 2: email
+auth_enter_email_or_url("canalvbm+rayburn@gmail.com")
 time.sleep(2)
 click_continue()
+pause_for_manual_captcha()
 
-if is_element_visible(AuthSelectors.ERROR_URL_DOESNT_EXIST):
-    print("TEST PASSED - Error shown")
-else:
-    print("TEST FAILED")
+# Step 3: password
+enter_password("Ray@123123123")
+time.sleep(2)
+click_continue_entered_password()
+pause_for_manual_captcha()
 
+# Step 4: profile
+fill_tell_us_more_about_you_form(
+    "Rayburn1", "May", "10", "2005", "Male"
+)
+
+time.sleep(2)
+
+click_continue_tell_us_more_about_you()
+pause_for_manual_captcha()
+
+
+############NEEEDS TO BE CONINUED
 time.sleep(5)

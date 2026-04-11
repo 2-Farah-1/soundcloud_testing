@@ -49,7 +49,7 @@ pages.cookies_page.wait = wait
 click_reject_all_cookies()
 
 click_header_create_account()
-switch_to_auth_iframe()
+#switch_to_auth_iframe()
 time.sleep(2)
 
 auth_enter_email_or_url("test@d")
