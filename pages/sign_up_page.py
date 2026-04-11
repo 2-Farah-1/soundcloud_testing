@@ -7,9 +7,26 @@ from ui_selectors import AuthSelectors, CookieSelectors, HomeSelectors, SignUpSe
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import Select
 
+import time
 
 driver=None
 wait=None
+
+def sign_up_enter_email(test_email):
+    # locate the email input inside that iframe
+    email_input = wait.until(
+        EC.visibility_of_element_located(SignUpSelectors.EMAIL)
+    )
+
+    # normal Selenium click
+    ActionChains(driver).move_to_element(email_input).click(email_input).perform()
+
+    time.sleep(1)
+
+    # type into the focused element
+    active = driver.switch_to.active_element
+    active.send_keys(test_email)
+
 
 #================================================
 #              Tell Us More About You form
@@ -99,4 +116,23 @@ def click_close_button():
     wait.until(EC.element_to_be_clickable(SignUpSelectors.CLOSE_BTN))
     driver.execute_script("arguments[0].click();", button)
 
+#for the "Verify your email" `part
+def enter_verification_code(code):
+    otp_inputs = wait.until(
+        EC.presence_of_all_elements_located(SignUpSelectors.OTP_INPUTS)
+    )
 
+    assert len(otp_inputs) >= len(code), (
+        f"Expected at least {len(code)} OTP input boxes, but found {len(otp_inputs)}."
+    )
+
+    for i, char in enumerate(code):
+        otp_inputs[i].clear()
+        otp_inputs[i].send_keys(char)
+
+
+def click_verify_email_button():
+    button = wait.until(
+        EC.element_to_be_clickable(SignUpSelectors.VERIFY_EMAIL_BUTTON)
+    )
+    button.click()

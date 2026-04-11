@@ -70,3 +70,24 @@ def pause_for_manual_captcha():
 #used becuase we handle A LOT of iframes
 def switch_to_default_content():
     driver.switch_to.default_content()
+
+def wait_for_non_blank_url(timeout=20):
+    WebDriverWait(driver, timeout).until(
+        lambda d: d.current_url != "about:blank"
+    )
+
+def open_link_in_new_tab(link): #for checkk your inbox logic
+    original_window = driver.current_window_handle
+
+    driver.execute_script("window.open(arguments[0], '_blank');", link)
+
+    WebDriverWait(driver, 10).until(
+        lambda d: len(d.window_handles) > 1
+    )
+
+    for window in driver.window_handles:
+        if window != original_window:
+            driver.switch_to.window(window)
+            return original_window
+
+    return original_window

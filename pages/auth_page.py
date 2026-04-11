@@ -26,7 +26,7 @@ def switch_to_auth_iframe():
 def open_auth():
     click_reject_all_cookies()
     click_header_create_account()
-    switch_to_auth_iframe()
+    #switch_to_auth_iframe()
 
 
 #=========================================================================================

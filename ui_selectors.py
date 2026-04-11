@@ -2,28 +2,43 @@ from selenium.webdriver.common.by import By
 
 class AuthSelectors:
    # iFrame=(By.XPATH, "(//iframe[@scrolling='no'])[1]")
-    iFrame=(By.CSS_SELECTOR, "iframe[src*='secure.soundcloud.com/web-auth']")
+    iFrame=(By.CSS_SELECTOR, "iframe[src*='secure.soundcloud.com/web-auth']") #og soundcloud
+
     CONNECT_TITLE = (By.XPATH, "//h1[text()='Sign in or create an account']")
     CLOSE_BTN = (By.XPATH, "//button[@title='Close']")
     FACEBOOK_BUTTON =  (By.CSS_SELECTOR, "button.sc-button-facebook" ) #CSS_SELECTOR
     GOOGLE_BUTTON = (By.CSS_SELECTOR, "button.sc-button-google")
     APPLE_BUTTON = (By.CSS_SELECTOR, "button.sc-button-apple")
 
-    EMAIL =  (By.ID,'sign_in_up_email' )  #ID
-    CONTINUE_BTN =  (By.ID, 'sign_in_up_submit' ) #ID
+    #EMAIL =  (By.NAME, "email")
+    EMAIL =  (
+    By.XPATH,
+    "//input[@type='email' and @placeholder='Your email address or profile URL']"
+    )
 
+
+
+    #CONTINUE_BTN =  (By.ID, 'sign_in_up_submit' ) #ID
+    CONTINUE_BTN =   (
+    By.XPATH,
+    "//button[normalize-space()='Continue']"
+    )
 
     CAPTCHA = (By.ID, "captcha-container")
 
-    NEED_HELP_LINK = (By.CSS_SELECTOR, "a.need-help-link")
+    #NEED_HELP_LINK = (By.CSS_SELECTOR, "a.need-help-link")
+
+    NEED_HELP_LINK = (By.XPATH, "//a[normalize-space()='Need help?']")
 
     BACK_BUTTON = (By.CSS_SELECTOR, "button.back-button")
 
-    PASSWORD =  (By.ID,"enter_password_field" ) #ID
-    SHOW_PASSWORD_BTN = (By.CSS_SELECTOR, "button.visibility-icon-button")
+    PASSWORD =  (By.XPATH, "//input[@type='password']")
+    SHOW_PASSWORD_BTN =(By.XPATH, "//button[.//svg[contains(@class,'lucide-eye')]]")
 
-    CONTINUE_ENTER_PASSWORD = (By.ID, "enter_password_submit")
+    CONTINUE_ENTER_PASSWORD =  (By.XPATH, "//button[normalize-space()='Continue']")
 
+
+    CONTINUE_BUTTON_DISABLED = (By.XPATH, "//button[@disabled and normalize-space()='Continue']")
 #BACK_BUTTON_SIGNIN_CREATE = (By.XPATH, "//button[@title='Sign in or create an account']")
 
     ERROR_URL_DOESNT_EXIST = (By.XPATH, "//span[@role='alert' and text()='That profile url does not exist']")
@@ -49,6 +64,7 @@ class SignInSelectors:
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=
 
+    WELCOME_BACK_MSG = (By.XPATH, "//h1[normalize-space()='Welcome back!']")
     BACK_BUTTON_WELCOME_BACK = (By.XPATH, "//button[@title='Welcome back!']")
 
     ERROR_INCORRECT_PASSWORD = (By.XPATH, "//span[@role='alert' and text()='This password is incorrect.']")
@@ -80,22 +96,20 @@ class SignInSelectors:
 
 
 class SignUpSelectors:
+    EMAIL =  (By.NAME, "email")
 #create account page:
-    CREATE_ACCOUNT_TITLE = (By.XPATH, "//span[text()='Create an account']")
+    CREATE_ACCOUNT_TITLE = (By.XPATH, "//h1[normalize-space()='Create an account']")
     #BACK_BUTTON_CREATE_ACCOUNT = (By.XPATH, "//button[@title='Create an account']")
-
+    BACK_BUTTON = (By.XPATH, "//button[.//svg[contains(@class,'chevron-left')]]")
 #Tell us more about you:
-    TELL_US_MORE_TITLE = (By.XPATH, "//span[text()='Tell us more about you']")
-    #BACK_BUTTON_TELL_US_MORE = (By.XPATH, "//button[@title='Tell us more about you']")
-    DISPLAY_NAME_INPUT = (By.ID, "sign_up_username")
-    MONTH_DROPDOWN = (By.CSS_SELECTOR, "select#birthDate_month")
-    DAY_DROPDOWN = (By.ID, "birthDate_day")
-
-    YEAR_DROPDOWN = (By.ID, "birthDate_year")
-
-    GENDER_DROPDOWN = (By.CSS_SELECTOR, "select#gender")
-    CONTINUE_SUBMIT_SIGNUP=(By.ID, "submit_signup")
-
+    TELL_US_MORE_TITLE = (By.XPATH, "//h1[normalize-space()='Tell us more about you']")    #BACK_BUTTON_TELL_US_MORE = (By.XPATH, "//button[@title='Tell us more about you']")
+    DISPLAY_NAME_INPUT = (By.XPATH, "//input[@placeholder='Your display name']")
+    MONTH_DROPDOWN = (By.XPATH, "//select[option[text()='January']]")
+    DAY_DROPDOWN = (By.XPATH, "//select[option[text()='1'] and option[text()='31']]")
+    YEAR_DROPDOWN = (By.XPATH, "//select[option[@value='2005']]")
+    GENDER_DROPDOWN = (By.XPATH, "//select[option[text()='Male'] and option[text()='Female']]")
+    CONTINUE_SUBMIT_SIGNUP = (By.XPATH, "//button[normalize-space()='Continue']")
+    BACK_BUTTON_TELL_US_MORE = (By.XPATH, "//button[.//svg[contains(@class,'chevron-left')]]")
 #================================================================
     CONSENT_EMAILS_CHECKBOX = (By.CSS_SELECTOR, "input[data-testid='consent-emails-checkbox']")
 
@@ -104,6 +118,8 @@ class SignUpSelectors:
 
 # this error is displayed when the age is too little or too much (13<age<??)
     ERROR_AGE = (By.XPATH, "//span[@role='alert' and text()=\"Sorry, but you don't meet SoundCloud's minimum age requirements\"]")
+    #this is not displayed in our project because they handle the error differently
+
 
 
     ACCOUNT_ALREADY_EXISTS_MSG = (By.CSS_SELECTOR, "div.signup-attempt")
@@ -126,7 +142,48 @@ class SignUpSelectors:
 
     VERIFICATION_EMAIL_TEXT = (By.CSS_SELECTOR, "p.verify-instruction-message b")
      #//*[@id="app"]/div/main/div/div/div[2]/p/b/text()
+#======================Check your inbox equivalent in our project:
+# title: "Verify your email"
+    VERIFY_EMAIL_TITLE = (
+        By.XPATH,
+        "//h1[normalize-space()='Verify your email']"
+    )
 
+    # displayed email address under "We sent a 6-character code to"
+    # this works even though the email value changes
+    SENT_TO_EMAIL = (
+        By.XPATH,
+        "//p[contains(normalize-space(),'We sent a 6-character code to')]/following-sibling::p[1]"
+    )
+
+    # all 6 OTP input boxes
+    OTP_INPUTS = (
+        By.CSS_SELECTOR,
+        "input[inputmode='text'][maxlength='1']"
+    )
+
+    # verify email button
+    VERIFY_EMAIL_BUTTON = (
+        By.XPATH,
+        "//button[normalize-space()='Verify email']"
+    )
+
+    # resend code button
+    RESEND_CODE_BUTTON = (
+        By.XPATH,
+        "//button[normalize-space()='Resend code']"
+    )
+
+    # back button
+    VERIFY_EMAIL_BACK_BUTTON = (
+        By.XPATH,
+        "//h1[normalize-space()='Verify your email']/preceding-sibling::button[1]"
+    )
+    RESEND_CODE_ALERT = (
+        By.XPATH,
+        "//div[normalize-space()='A new code has been sent to your inbox.']"
+    )
+#=================================================================================================================================================
 #Help Center Page
     HELP_CENTER_PAGE_TITLE = (By.XPATH, "//h1[text()='HELP CENTER']")
 
@@ -178,11 +235,13 @@ class CookieSelectors:
 
 class HomeSelectors:
 #signed out:
-    HEADER_SIGN_IN = (By.XPATH,("//button[@class='g-opacity-transition frontHero__loginButton sc-button sc-button-medium "
-                   "loginButton sc-button-tertiary']"))
-    HEADER_CREATE_ACCOUNT=(By.XPATH,("//button[@class='g-opacity-transition frontHero__createAccountButton sc-button "
-                    "sc-button-medium signupButton sc-button-cta sc-button-primary']"))
 
+    # HEADER_SIGN_IN = (By.XPATH,("//button[@class='g-opacity-transition frontHero__loginButton sc-button sc-button-medium "
+    #                "loginButton sc-button-tertiary']")) og soundcloud
+    HEADER_SIGN_IN = (By.XPATH, "//a[@href='/signin']")
+    # HEADER_CREATE_ACCOUNT=(By.XPATH,("//button[@class='g-opacity-transition frontHero__createAccountButton sc-button "
+    #                 "sc-button-medium signupButton sc-button-cta sc-button-primary']"))
+    HEADER_CREATE_ACCOUNT=(By.XPATH, "//a[@href='/create-account']")
     CLOSE_POPUP=(By.XPATH,"//button[@aria-label='Close']//div//*[name()='svg']")
     BOTTOM_CREATE_ACCOUNT = (By.CSS_SELECTOR,
                         "button[class='g-opacity-transition signupModule__signupCta "
@@ -191,9 +250,16 @@ class HomeSelectors:
     BOTTOM_SIGN_IN = (By.CSS_SELECTOR,
                  "button[class='g-opacity-transition sc-button sc-button-large loginButton sc-button-tertiary'] ")
 
+
+    MORE_BUTTON = (By.XPATH, "//span[normalize-space()='···']")
+
+#In project and not in soundloud:
+    HEADER_UPLOAD=(By.XPATH, "//a[@href='/upload']")
+
+
+
 #======================================================================================
 #signed in:
-    MORE_BUTTON = (By.CSS_SELECTOR, "a.header__moreButton")
 
     MORE_MENU_DROPDOWN = (By.CSS_SELECTOR, "a.header__moreButton[aria-haspopup='true']")
 
@@ -202,7 +268,8 @@ class HomeSelectors:
     SIGN_OUT_BTN = (By.XPATH, "//a[@href='/logout' and text()='Sign out']")
 
 
-    PROFILE_MENU_PROFILE = (By.XPATH, "//a[contains(., 'Profile')]")
+    #PROFILE_MENU_PROFILE = (By.XPATH, "//a[contains(., 'Profile')]") og soundcloud
+    PROFILE_MENU_PROFILE = (By.CSS_SELECTOR, 'a[title="My Profile"]') #migrated
     PROFILE_MENU_LIKES = (By.CSS_SELECTOR, "a[href='/you/likes']")
     PROFILE_MENU_STATIONS = (By.CSS_SELECTOR, "a[href='/you/stations']")
     PROFILE_MENU_WHO_TO_FOLLOW = (By.CSS_SELECTOR, "a[href='/people']")
@@ -239,7 +306,7 @@ class SettingsSelectors:
 
 
     DELETE_ACCOUNT_BTN = (By.CSS_SELECTOR, "button.accountSettings__deleteAccount")
-
+#OG Soundcloud ->couldn't migrate
 class SettingsAddEmailSection:
 #adding an email logic
     NEW_EMAIL_INPUT = (By.CSS_SELECTOR, "input[placeholder='Please enter your email address *']")
@@ -324,7 +391,7 @@ class SettingsAddEmailSection:
     DELETE_EMAIL_BTN = (By.CSS_SELECTOR, "button.accountEmailControl__confirmRemove")
     CANCEL_DELETE_EMAIL_BTN = (By.CSS_SELECTOR, "button.accountEmailControl__cancelRemove")
 
-
+#OG Soundcloud -> couldn't migrate
 class SettingsResetPasswordSection:
     PASSWORD_RESET_LINK_SENT_ALERT = (By.CSS_SELECTOR, "p.accountSettings__resetNotice")
 
@@ -350,7 +417,7 @@ class SettingsResetPasswordSection:
     PASSWORD_RESET_SUCCESS_TITLE = (By.XPATH, "//h1[text()='You have successfully changed your password.']")
 
     PASSWORD_RESET_SUCCESS_SIGNIN_BTN = (By.XPATH, "//a[@href='/signin' and text()='Sign in']")
-
+#OG Soundcloud ->couldn't migrate
 class SettingsDeleteAccountSection:
     DELETE_ACCOUNT_IFRAME=(  By.XPATH,
                 "//iframe[contains(@src, '/n/pages/standby') and @title='SoundCloud']")
@@ -407,9 +474,6 @@ class SettingsDeleteAccountSection:
     DELETE_ACCOUNT_SUCCESS_CLOSE_BTN = (By.XPATH, "//button[@title='Close']")
 
     SIGNED_OUT_ALERT = (By.XPATH, "//h1[text()=\"You've signed out. Now go mobile!\"]")
-
-
-from selenium.webdriver.common.by import By
 
 
 class UploadSelectors:

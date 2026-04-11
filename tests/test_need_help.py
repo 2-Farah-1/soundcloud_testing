@@ -40,7 +40,7 @@ def test_need_help_opens_help_center(driver):
     click_reject_all_cookies()
 
     click_header_create_account()
-    switch_to_auth_iframe()
+    #switch_to_auth_iframe()
 
     click_need_help()
 
