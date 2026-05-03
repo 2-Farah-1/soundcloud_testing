@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 class ProfileSelectors:
-    DISPLAY_NAME_LABEL = (By.XPATH, "//span[contains(@class,'text-white') and contains(@class,'font-bold')]")
+    DISPLAY_NAME_LABEL = (By.XPATH, "//span[@class='inline-flex items-center bg-black px-2 text-sm font-bold text-white sm:text-xl md:text-3xl lg:text-3xl']")
     CITY_LABEL = (By.XPATH, "(//span[contains(@class,'text-gray-400')])[1]")
     COUNTRY_LABEL = (By.XPATH, "(//span[contains(@class,'text-gray-400')])[2]")
     EDIT_BTN = (By.XPATH, "//button[@title='Edit']")
@@ -20,8 +20,16 @@ class ProfileSelectors:
 
 # class UploadSelectors:
 
+class PlaylistSelectors:
+    CREATE_PLAYLIST_BTN = (By.XPATH, "//button[@class='pb-2 transition-colors border-b border-white text-white']")
+    PLAYLIST_NAME_TEXTBOX = (By.XPATH, "//input[@class='mt-2 w-full rounded-sm border border-zinc-800 bg-[#2f2f2f] px-3 py-2 text-sm text-white outline-none placeholder:text-zinc-400 focus:border-zinc-600']")
+    SAVE_BTN = (By.XPATH, "//button[normalize-space()='Save']")
+    ADD_BTN = (By.XPATH, "//button[@class='rounded-sm bg-zinc-700 px-4 py-1.5 text-xs font-bold text-white hover:bg-zinc-600 disabled:opacity-60']")
+    FILTER_TEXTBOX = (By.XPATH, "//input[@placeholder='Filter playlists']")
+
 
 class FeedSelectors:
+    PLAYBAR = (By.XPATH, "//div[contains(@class,'fixed') and contains(@class,'bottom-0')]//span[contains(text(),':')]")
     # 7AGET EL HOME
     HOME_BTN = (By.XPATH, "//a[normalize-space()='Home']")
     FEED_BTN = (By.XPATH, "//a[normalize-space()='Feed']")
@@ -39,7 +47,7 @@ class FeedSelectors:
     SEARCH_BAR_SONG_DD = (By.XPATH, "//p[@class='text-white text-[13px] font-medium truncate']")
     SEARCH_BAR_USER_DD = (By.XPATH, "//p[normalize-space()='@MiroMiro · 1 followers']")
     SC_BTN = (By.XPATH, "//*[name()='path' and contains(@d,'M23.999 14')]")
-    PROFILE_BTN = (By.XPATH, "//span[@class='text-xs text-white font-bold']")
+    PROFILE_BTN = (By.XPATH, "//img[@alt='My Profile']")
     # SIDEBAR
     UNLOCK_PRO_BTN = (By.XPATH, "//span[@class='px-1 text-[13px] font-medium tracking-tight leading-snug']")
     FOLLOW_BTN = (By.XPATH, "//div[@class='flex flex-col gap-3']//div[1]//button[1]")
