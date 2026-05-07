@@ -10,11 +10,16 @@ from selenium.webdriver.chrome.service import Service
 @pytest.fixture
 def driver():
     service = Service(r"C:\browserdrivers\chromedriver.exe")
-    driver = webdriver.Chrome(service=service)
-    driver.implicitly_wait(5)
-    yield driver
-    driver.quit()
 
+    options = webdriver.ChromeOptions()
+    options.set_capability("goog:loggingPrefs", {"browser": "ALL"})
+
+    driver = webdriver.Chrome(service=service, options=options)
+    driver.implicitly_wait(5)
+
+    yield driver
+
+    driver.quit()
 
 # hook for screenshots
 @pytest.hookimpl(hookwrapper=True)
@@ -29,7 +34,7 @@ def pytest_runtest_makereport(item, call):
 
         if driver:
             # create screenshots folder if it doesn't exist
-            screenshots_dir = "screenshots"
+            screenshots_dir = "tests/screenshots"
             os.makedirs(screenshots_dir, exist_ok=True)
 
             # generate file name (testname_time&date)

@@ -74,3 +74,4 @@ def test_send_password_reset_link(driver):  # starts with account logged in at h
 
     assert alert_email.lower() == SIGNED_IN_EMAIL.lower(), \
         f"Expected email '{SIGNED_IN_EMAIL}' but found '{alert_email}'"
+
